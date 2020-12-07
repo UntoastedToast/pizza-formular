@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Vorbereitung zur 5. Sitzung</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="style/main.css" />
+  <script src="js/main.js"></script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body onload="newsletter()">
+  <header class="header font">
+    <div class="logo">
+      <img src="img/combo-pizza-logo.svg" alt="Logo">
+    </div>
+  </header>
+
+  <main class="container font">
+
+    <div>
+      <p id="rabatt" class=""></p>
+    </div>
+
+    <form action="#">
+      <fieldset id="personenangabe">
+        <h3>Personenangaben</h3>
+        <label for="vname">Vorname:</label>
+        <input type="text" id="vname" name="vname" value="Vorname" />
+        <label for="nname">Nachname:</label>
+        <input type="text" id="nname" name="nname" value="Nachname" />
+        <br /><br />
+      </fieldset>
+
+      <fieldset id="auswahl">
+        <h3>Teigsorte</h3>
+          <label for="teig">Wähle eine Teigsorte:</label>
+          <select name="teig" id="teig">
+            <optgroup label="Vegetarisch">
+              <option value="weizen">Weizen</option>
+              <option value="vollkorn">Vollkorn</option>
+            </optgroup>
+            <optgroup label="Vegan">
+              <option value="vegan">Veganer Teig</option>
+            </optgroup>
+          </select>
+          <br /><br />
+      </fieldset>
+
+      <fieldset id="zutaten" class="mb">
+        <h3>Zutaten</h3>
+          <input type="checkbox" id="zutate1" name="zutate1" value="zutate1" checked />
+          <label for="zutate1"> Mozzarella </label><br />
+          <input type="checkbox" id="zutate2" name="zutate2" value="zutate2" />
+          <label for="zutate2"> Pilze </label><br />
+          <input type="checkbox" id="zutate3" name="zutate3" value="zutate3" />
+          <label for="zutate3"> Meeresfrüchte </label><br />
+          <input type="checkbox" id="zutate4" name="zutate4" value="zutate4" />
+          <label for="zutate4"> Zucchini </label><br />
+          <input type="checkbox" id="zutate5" name="zutate5" value="zutate5" />
+          <label for="zutate5"> Parma-Schinken </label><br />
+          <input type="checkbox" id="zutate6" name="zutate6" value="zutate6" />
+          <label for="zutate6"> Rucola </label><br />
+      </fieldset>
+
+      <fieldset id="zustellung" class="mb">
+        <h3>Zustellung</h3>
+          <input type="radio" id="lieferung" name="zustellung" value="lieferung" checked />
+          <label for="lieferung"> Lieferung</label>
+          <input type="radio" id="abholung" name="zustellung" value="abholung" />
+          <label for="abholung"> Abholung</label>
+      </fieldset>
+
+      <fieldset id="liefergebühr" class="mb">
+        <h3>Liefergebühr</h3>
+          <label for="gebühr">Liefergebühr:</label>
+          <input type="text" id="gebühr" name="gebühr" value="2,50€" readonly><br>
+          
+          <div class="lieferung-option">
+            <input type="radio" id="normale-lieferung" name="lieferung-dauer" value="2,50€" onchange="lieferKosten();" checked>
+            <label for="normale-lieferung">Normale Lieferung</label><br>
+
+            <input type="radio" id="schnelle-lieferung" name="lieferung-dauer" value="4,50€" onchange="lieferKosten();">
+            <label for="schnelle-lieferung">Schnelle Lieferung</label>
+          </div>
+      </fieldset>
+
+      <fieldset id="anmerkungen">
+        <h3>Anmerkungen</h3>
+        <label for="anmerkungen-text">Notieren deine Anmerkungen:</label><br />
+        <textarea id="anmerkungen-text" name="anmerkungen-text" rows="10" cols="50">
+Text...</textarea>
+      </fieldset>
+
+      <input type="submit" value="Senden" onclick="">
+
+    </form>
+
+    <div class="fragen">
+      <p id="innerLink" onclick="changeText()">Haben Sie noch Fragen? Klicken Sie hier!</p>
+    </div>
+
+  </main>
+</body>
+
+</html>

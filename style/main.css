@@ -1,0 +1,86 @@
+/* -------------------- 
+        General 
+-------------------- */
+
+body {
+    background: #ffde97;
+    margin: 0;
+}
+
+.font {
+    font-family: "Open Sans", sans-serif;
+}
+
+.container {
+    display: flexbox;
+    max-width: 960px;
+    margin: 0 auto 100px;
+    background: #fff;
+    padding: 3em;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+
+.mb {
+    margin-bottom: 3em;
+}
+
+
+fieldset {
+    border: none;
+}
+
+
+/* -------------------- 
+        Header 
+-------------------- */
+
+.header {
+    padding: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    width: 200px;
+}
+
+/* -------------------- 
+        Rabatt 
+-------------------- */
+
+.rabatt-notice {
+    color: #fff;
+    background-color: #cc2c32;
+    padding: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+/* -------------------- 
+        Fragen 
+-------------------- */
+
+.fragen {
+    margin-top: 50px;
+}
+
+.fragen p {
+    background-color: rgb(245, 245, 245);
+    padding: 30px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+/* -------------------- 
+      Lieferung 
+-------------------- */
+
+.lieferung-option {
+    margin-top: 10px;
+}
