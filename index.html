@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Vorbereitung zur 5. Sitzung</title>
+  <title>Pizza Formular</title>
   <link rel="stylesheet" type="text/css" media="screen" href="style/main.css" />
   <script src="js/main.js"></script>
 
@@ -16,94 +16,177 @@
 <body onload="newsletter()">
   <header class="header font">
     <div class="logo">
-      <img src="img/combo-pizza-logo.svg" alt="Logo">
+      <img src="img/combo-pizza-logo.svg" alt="Logo" />
     </div>
   </header>
 
   <main class="container font">
-
     <div>
       <p id="rabatt" class=""></p>
     </div>
 
-    <form action="#">
-      <fieldset id="personenangabe">
+    <section id="pizzaFormular" class="">
+      <form id="personenangabe" onchange="personenAngabe()">
         <h3>Personenangaben</h3>
         <label for="vname">Vorname:</label>
-        <input type="text" id="vname" name="vname" value="Vorname" />
+        <input type="text" id="vname" name="vname" value="" placeholder="Vorname" required />
         <label for="nname">Nachname:</label>
-        <input type="text" id="nname" name="nname" value="Nachname" />
+        <input type="text" id="nname" name="nname" value="" placeholder="Nachname" required />
         <br /><br />
-      </fieldset>
+      </form>
 
-      <fieldset id="auswahl">
+      <form id="pizza">
+        <h3>Pizza</h3>
+        <p>
+          Alle Pizzen werden mit Tomatensauce, Mozzarella und Oregano
+          zubereitet.
+        </p>
+        <label>
+          <input type="checkbox" name="selectedPizza" value="Pizza Salami" id="selectedPizza_0"
+            onChange="getPizzaData()" />
+          Pizza Salami
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="selectedPizza" value="Pizza Marinara" id="selectedPizza_1"
+            onChange="getPizzaData()" />
+          Pizza Marinara</label>
+        <br />
+        <label>
+          <input type="checkbox" name="selectedPizza" value="Pizza Funghi" id="selectedPizza_2"
+            onChange="getPizzaData()" />
+          Pizza Funghi</label>
+        <br />
+        <label>
+          <input type="checkbox" name="selectedPizza" value="Pizza Prosciutto" id="selectedPizza_3"
+            onChange="getPizzaData()" />
+          Pizza Prosciutto</label>
+        <br />
+        <label>
+          <input type="checkbox" name="selectedPizza" value="Pizza Tonno" id="selectedPizza_4"
+            onChange="getPizzaData()" />
+          Pizza Tonno</label>
+        <br />
+        <label>
+          <input type="checkbox" name="selectedPizza" value="Pizza Verdura" id="selectedPizza_5"
+            onChange="getPizzaData()" />
+          Pizza Verdura</label>
+        <br />
+        <label>
+          <input type="checkbox" name="selectedPizza" value="Pizza Campagnola" id="selectedPizza_6"
+            onChange="getPizzaData()" />
+          Pizza Campagnola</label>
+        <br />
+        <label>
+          <input type="checkbox" name="selectedPizza" value="Pizza Fantastica (scharf)" id="selectedPizza_7"
+            onChange="getPizzaData()" />
+          Pizza Fantastica (scharf)</label>
+        <br />
+        <label>
+          <input type="checkbox" name="selectedPizza" value="Pizza Crema di Balsamico" id="selectedPizza_8"
+            onChange="getPizzaData()" />
+          Pizza Crema di Balsamico</label>
+        <br />
+        <p id="pizzaPrice" class=""></p>
+        <p id="pizzaSelected" class=""></p>
+      </form>
+
+      <form id="teigsorte">
         <h3>Teigsorte</h3>
-          <label for="teig">Wähle eine Teigsorte:</label>
-          <select name="teig" id="teig">
-            <optgroup label="Vegetarisch">
-              <option value="weizen">Weizen</option>
-              <option value="vollkorn">Vollkorn</option>
-            </optgroup>
-            <optgroup label="Vegan">
-              <option value="vegan">Veganer Teig</option>
-            </optgroup>
-          </select>
-          <br /><br />
-      </fieldset>
+        <label for="teig">Wähle eine Teigsorte:</label>
+        <select name="teig" id="teig" onchange="teigsorteSelected(this.value)">
+          <option value="Nothing">Bitte auswählen</option>
+          <optgroup label="Vegetarisch">
+            <option value="Weizen">Weizen</option>
+            <option value="Vollkorn">Vollkorn</option>
+          </optgroup>
+          <optgroup label="Vegan">
+            <option value="Vegan">Veganer Teig</option>
+          </optgroup>
+        </select>
+        <p id="teigSelected" class=""></p>
+      </form>
 
-      <fieldset id="zutaten" class="mb">
+      <form id="zutaten" class="mb">
         <h3>Zutaten</h3>
-          <input type="checkbox" id="zutate1" name="zutate1" value="zutate1" checked />
-          <label for="zutate1"> Mozzarella </label><br />
-          <input type="checkbox" id="zutate2" name="zutate2" value="zutate2" />
-          <label for="zutate2"> Pilze </label><br />
-          <input type="checkbox" id="zutate3" name="zutate3" value="zutate3" />
-          <label for="zutate3"> Meeresfrüchte </label><br />
-          <input type="checkbox" id="zutate4" name="zutate4" value="zutate4" />
-          <label for="zutate4"> Zucchini </label><br />
-          <input type="checkbox" id="zutate5" name="zutate5" value="zutate5" />
-          <label for="zutate5"> Parma-Schinken </label><br />
-          <input type="checkbox" id="zutate6" name="zutate6" value="zutate6" />
-          <label for="zutate6"> Rucola </label><br />
-      </fieldset>
+        <input type="checkbox" id="zutate_1" name="selectedZutaten" value="Mozzarella" onChange="getZutatenData()" />
+        <label for="zutate_1"> Mozzarella </label><br />
+        <input type="checkbox" id="zutate_2" name="selectedZutaten" value="Pilze" onChange="getZutatenData()" />
+        <label for="zutate_2"> Pilze </label><br />
+        <input type="checkbox" id="zutate_3" name="selectedZutaten" value="Meeresfrüchte" onChange="getZutatenData()" />
+        <label for="zutate_3"> Meeresfrüchte </label><br />
+        <input type="checkbox" id="zutate_4" name="selectedZutaten" value="Zucchini" onChange="getZutatenData()" />
+        <label for="zutate_4"> Zucchini </label><br />
+        <input type="checkbox" id="zutate_5" name="selectedZutaten" value="Parma-Schinken"
+          onChange="getZutatenData()" />
+        <label for="zutate_5"> Parma-Schinken </label><br />
+        <input type="checkbox" id="zutate_6" name="selectedZutaten" value="Rucola" onChange="getZutatenData()" />
+        <label for="zutate_6"> Rucola </label><br />
 
-      <fieldset id="zustellung" class="mb">
+        <p id="zutatenPrice" class=""></p>
+        <p id="zutatenSelected" class=""></p>
+
+      </form>
+
+      <form id="zustellung" class="mb">
         <h3>Zustellung</h3>
-          <input type="radio" id="lieferung" name="zustellung" value="lieferung" checked />
-          <label for="lieferung"> Lieferung</label>
-          <input type="radio" id="abholung" name="zustellung" value="abholung" />
-          <label for="abholung"> Abholung</label>
-      </fieldset>
+        <input type="radio" id="zustellungLieferung" name="zustellung" value="Lieferung" onclick="getZustellung()"
+          checked />
+        <label for="zustellungLieferung"> Lieferung</label>
+        <input type="radio" id="zustellungAbholung" name="zustellung" value="Abholung" onclick="getZustellung()" />
+        <label for="zustellungAbholung"> Abholung</label>
+      </form>
 
-      <fieldset id="liefergebühr" class="mb">
+      <form id="lieferung" class="mb" style="display: block;">
         <h3>Liefergebühr</h3>
-          <label for="gebühr">Liefergebühr:</label>
-          <input type="text" id="gebühr" name="gebühr" value="2,50€" readonly><br>
-          
-          <div class="lieferung-option">
-            <input type="radio" id="normale-lieferung" name="lieferung-dauer" value="2,50€" onchange="lieferKosten();" checked>
-            <label for="normale-lieferung">Normale Lieferung</label><br>
+        <label for="gebühr">Liefergebühr:</label>
+        <input type="text" id="gebühr" name="gebühr" placeholder="0.00€" readonly /><br />
 
-            <input type="radio" id="schnelle-lieferung" name="lieferung-dauer" value="4,50€" onchange="lieferKosten();">
-            <label for="schnelle-lieferung">Schnelle Lieferung</label>
-          </div>
-      </fieldset>
+        <div class="lieferung-option">
+          <input type="radio" id="normaleLieferung" name="lieferungDauer" value="Normale Lieferung"
+            onchange="getLieferungData();" />
+          <label for="normaleLieferung">Normale Lieferung</label><br />
 
-      <fieldset id="anmerkungen">
+          <input type="radio" id="expressLieferung" name="lieferungDauer" value="Express Lieferung"
+            onchange="getLieferungData();" />
+          <label for="expressLieferung">Express Lieferung</label>
+        </div>
+      </form>
+
+      <form id="anmerkungen">
         <h3>Anmerkungen</h3>
         <label for="anmerkungen-text">Notieren deine Anmerkungen:</label><br />
-        <textarea id="anmerkungen-text" name="anmerkungen-text" rows="10" cols="50">
-Text...</textarea>
-      </fieldset>
+        <textarea id="anmerkungen-text" name="anmerkungen-text" rows="10" cols="50" placeholder="Text..."></textarea>
+      </form>
 
-      <input type="submit" value="Senden" onclick="">
+      <input type="button" value="Senden" onclick="rechnung()" />
+    </section>
 
-    </form>
+    <section id="rechnung" class="hidden">
+      <h2>Rechnungsbeleg</h2>
+      <h4>Kosten für Ihre Pizza:</h4>
+      <p id="rechnungPizzaKosten"></p>
+      <h4>Kosten für die Lieferung:</h4>
+      <p id="rechnungLieferKosten"></p>
+      <h4>Gesamtkosten:</h4>
+      <p id="rechnungKosten"></p>
+      <h4>Sie haben folgende Pizza bzw. Pizzen bestellt:</h4>
+      <p id="rechnungPizza"></p>
+      <h4>Sie haben folgenden Teig ausgewählt:</h4>
+      <p id="rechnungTeig"></p>
+      <h4>Sie haben folgende Lieferung ausgewählt:</h4>
+      <p id="rechnungLieferung"></p>
+    </section>
 
-    <div class="fragen">
-      <p id="innerLink" onclick="changeText()">Haben Sie noch Fragen? Klicken Sie hier!</p>
+    <div id="reloadWebsite" class="hidden">
+      <button onClick="window.location.href=window.location.href">Neue Bestellung aufgeben</button>
     </div>
 
+    <div class="fragen">
+      <p id="innerLink" onclick="changeText()">
+        Haben Sie noch Fragen? Klicken Sie hier!
+      </p>
+    </div>
   </main>
 </body>
 
