@@ -126,3 +126,18 @@ fieldset {
     margin-top: 0;
     margin-bottom: 30px;
 }
+
+
+/* -------------------- 
+    Image Change 
+-------------------- */
+
+.image_change {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.image_change img {
+    width: 300px;
+}

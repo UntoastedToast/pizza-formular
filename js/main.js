@@ -318,5 +318,10 @@ function rechnung() {
   // Show 'Reload Website' Button
   document.getElementById("reloadWebsite").classList.remove("hidden");
 
+  // Image Change
+  var imageName = "Rechnung"
+	var imagePath = "img/" + imageName + ".png";
+	console.log("Das Bild wurde mit folgenden Pfad ersetzt: " + imagePath);
+	document.getElementById("bildElement").src = imagePath;
 }
 
