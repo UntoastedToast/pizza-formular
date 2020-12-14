@@ -1,6 +1,6 @@
 // ----- NEWSLETTER ----- //
 
-function newsletter() {
+/* function newsletter() {
   var check = window.confirm(
     "Haben Sie bereits unsere Rabattgutscheine abboniert?"
   );
@@ -11,7 +11,7 @@ function newsletter() {
     document.getElementById("rabatt").innerHTML = rabatt;
     document.getElementById("rabatt").className = "rabatt-notice";
   }
-}
+} */
 
 // ----- TEXT ÄNDERN ----- //
 
@@ -204,6 +204,7 @@ function getZutatenData() {
   zutatenSelectedDIV.className = "ausgabe";
 }
 
+
 // ----- ZUSTELLUNG ----- //
 
 function getZustellung() {
@@ -286,6 +287,15 @@ function getLieferungData() {
   lieferungBetragDIV.value = lieferungBetrag + "€";
 }
 
+// ----- TEXT FIELD ----- //
+
+function getTextField() {
+  var textField = document.getElementById("anmerkungenText").value;
+
+  console.log("Eingegebener Text: " + textField);
+
+  return textField;
+}
 
 // ----- RECHNUNG ----- //
 
@@ -295,19 +305,22 @@ function rechnung() {
   var rechnungLieferungPreis = getLieferungBetrag();
   var rechnungPizzaName = getPizzaName();
   var rechnungLieferung = getLieferungOption();
+  var rechnungText = getTextField();
+  var rechnungZutatenPreis = getZutatenPrice();
 
-  var gesamtkosten = parseFloat(rechnungPizzaPreis) + parseFloat(rechnungLieferungPreis);
+  var gesamtkosten = parseFloat(rechnungPizzaPreis) + parseFloat(rechnungLieferungPreis) + parseFloat(rechnungZutatenPreis);
 
   // Rechnung Ausgabe
   document.getElementById("rechnungPizzaKosten").innerHTML = parseFloat(rechnungPizzaPreis).toFixed(2) + "€";
   document.getElementById("rechnungLieferKosten").innerHTML = parseFloat(rechnungLieferungPreis).toFixed(2) + "€";
+  document.getElementById("rechnungZutatenKosten").innerHTML = parseFloat(rechnungZutatenPreis).toFixed(2) + "€";
   document.getElementById("rechnungKosten").innerHTML = parseFloat(gesamtkosten).toFixed(2) + "€";
   document.getElementById("rechnungPizza").innerHTML = rechnungPizzaName;
-  document.getElementById("rechnungLieferung").innerHTML = rechnungLieferung;
+  document.getElementById("rechnungText").innerHTML = rechnungText;
 
   // Hide Formular
-  document.getElementById("pizzaFormular").style.opacity = "0.4";
-  document.getElementById("pizzaFormular").style.pointerEvents = "none";
+  // document.getElementById("pizzaFormular").style.opacity = "0.4";
+  // document.getElementById("pizzaFormular").style.pointerEvents = "none";
 
   document.getElementById("pizzaFormular").style.display = "none";
 
@@ -320,8 +333,8 @@ function rechnung() {
 
   // Image Change
   var imageName = "Rechnung"
-	var imagePath = "img/" + imageName + ".png";
-	console.log("Das Bild wurde mit folgenden Pfad ersetzt: " + imagePath);
-	document.getElementById("bildElement").src = imagePath;
+  var imagePath = "img/" + imageName + ".png";
+  console.log("Das Bild wurde mit folgenden Pfad ersetzt: " + imagePath);
+  document.getElementById("bildElement").src = imagePath;
 }
 

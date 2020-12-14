@@ -16,7 +16,7 @@
 <body onload="newsletter()">
   <header class="header font">
     <div class="logo">
-      <img src="img/combo-pizza-logo.svg" alt="Logo" />
+        <img src="img/combo-pizza-logo.svg" alt="Logo" />
     </div>
   </header>
 
@@ -157,10 +157,10 @@
         </div>
       </form>
 
-      <form id="anmerkungen">
+      <form id="anmerkungen" onchange="getTextField()">
         <h3>Anmerkungen</h3>
-        <label for="anmerkungen-text">Notieren deine Anmerkungen:</label><br />
-        <textarea id="anmerkungen-text" name="anmerkungen-text" rows="10" cols="50" placeholder="Text..."></textarea>
+        <label for="anmerkungenText">Notieren Sie ihre Anmerkungen:</label><br />
+        <textarea id="anmerkungenText" name="anmerkungenText" rows="10" cols="50" placeholder="Text..."></textarea>
       </form>
 
       <input type="button" value="Senden" onclick="rechnung()" />
@@ -170,6 +170,8 @@
       <h2>Rechnungsbeleg</h2>
       <h4>Kosten für Ihre Pizza:</h4>
       <p id="rechnungPizzaKosten"></p>
+      <h4>Kosten für ausgewähle Zutaten:</h4>
+      <p id="rechnungZutatenKosten"></p>
       <h4>Kosten für die Lieferung:</h4>
       <p id="rechnungLieferKosten"></p>
       <h4>Gesamtkosten:</h4>
@@ -180,6 +182,8 @@
       <p id="rechnungTeig"></p>
       <h4>Sie haben folgende Lieferung ausgewählt:</h4>
       <p id="rechnungLieferung"></p>
+      <h4>Sie haben folgende Anmerkungen abgegeben:</h4>
+      <p id="rechnungText"></p>
     </section>
 
     <div id="reloadWebsite" class="hidden">
