@@ -58,19 +58,19 @@ pizzaArray["Pizza Crema di Balsamico"] = 8.5;
 
 //Checkbox - Pizza
 function getPizzaPrice() {
-  var PizzaSelected = 0;
+  var pizzaCost = 0;
   var pizzaForm = document.forms["pizza"];
   var selectedPizza = pizzaForm.elements["selectedPizza"];
 
   for (var i = 0; i < selectedPizza.length; i++) {
     if (selectedPizza[i].checked) {
-      PizzaSelected += pizzaArray[selectedPizza[i].value] || 0;
+      pizzaCost += pizzaArray[selectedPizza[i].value] || 0;
     }
   }
 
-  console.log(PizzaSelected);
+  console.log(pizzaCost);
   // Return Pizza Preis
-  return parseFloat(PizzaSelected).toFixed(2);
+  return parseFloat(pizzaCost).toFixed(2);
 }
 
 function getPizzaName() {
@@ -159,19 +159,19 @@ zutatenArray["Rucola"] = 1.0;
 
 //Checkbox - Zutaten
 function getZutatenPrice() {
-  var zutatenSelected = 0;
+  var zutatenCost = 0;
   var zutatenForm = document.forms["zutaten"];
   var selectedZutaten = zutatenForm.elements["selectedZutaten"];
 
   for (var i = 0; i < selectedZutaten.length; i++) {
     if (selectedZutaten[i].checked) {
-      zutatenSelected += zutatenArray[selectedZutaten[i].value] || 0;
+      zutatenCost += zutatenArray[selectedZutaten[i].value] || 0;
     }
   }
 
-  console.log(zutatenSelected);
+  console.log(zutatenCost);
   // Return Zutaten
-  return parseFloat(zutatenSelected).toFixed(2);
+  return parseFloat(zutatenCost).toFixed(2);
 }
 
 function getZutatenName() {
@@ -230,6 +230,8 @@ function getZustellung() {
       document.getElementById("lieferung").style.opacity = "0.4";
       document.getElementById("lieferung").style.pointerEvents = "none";
       document.getElementById("lieferung").reset();
+      // Console Log
+      console.log("Die 'radio button' Auswahl wurde zurückgesetzt und die Lieferung-Sektion ausgeblendet.")
     }
   }
 
@@ -247,19 +249,19 @@ lieferungArray["Express Lieferung"] = 3.5;
 
 //Checkbox - Lieferung
 function getLieferungBetrag() {
-  var lieferungSelected = 0;
+  var lieferungCost = 0;
   var lieferungForm = document.forms["lieferung"];
   var lieferungDauer = lieferungForm.elements["lieferungDauer"];
 
   for (var i = 0; i < lieferungDauer.length; i++) {
     if (lieferungDauer[i].checked) {
-      lieferungSelected += lieferungArray[lieferungDauer[i].value] || 0;
+      lieferungCost += lieferungArray[lieferungDauer[i].value] || 0;
     }
   }
 
-  console.log(lieferungSelected);
+  console.log(lieferungCost);
   // Return Lieferung
-  return parseFloat(lieferungSelected).toFixed(2);
+  return parseFloat(lieferungCost).toFixed(2);
 }
 
 function getLieferungOption() {
@@ -319,9 +321,6 @@ function rechnung() {
   document.getElementById("rechnungText").innerHTML = rechnungText;
 
   // Hide Formular
-  // document.getElementById("pizzaFormular").style.opacity = "0.4";
-  // document.getElementById("pizzaFormular").style.pointerEvents = "none";
-
   document.getElementById("pizzaFormular").style.display = "none";
 
   // Remove Hidden Class
@@ -337,4 +336,3 @@ function rechnung() {
   console.log("Das Bild wurde mit folgenden Pfad ersetzt: " + imagePath);
   document.getElementById("bildElement").src = imagePath;
 }
-
