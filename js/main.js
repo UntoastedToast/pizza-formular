@@ -317,6 +317,7 @@ function rechnung() {
   document.getElementById("rechnungLieferKosten").innerHTML = parseFloat(rechnungLieferungPreis).toFixed(2) + "€";
   document.getElementById("rechnungZutatenKosten").innerHTML = parseFloat(rechnungZutatenPreis).toFixed(2) + "€";
   document.getElementById("rechnungKosten").innerHTML = parseFloat(gesamtkosten).toFixed(2) + "€";
+  document.getElementById("rechnungLieferung").innerHTML = rechnungLieferung;
   document.getElementById("rechnungPizza").innerHTML = rechnungPizzaName;
   document.getElementById("rechnungText").innerHTML = rechnungText;
 
