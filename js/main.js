@@ -1,6 +1,6 @@
 // ----- NEWSLETTER ----- //
 
-/* function newsletter() {
+function newsletter() {
   var check = window.confirm(
     "Haben Sie bereits unsere Rabattgutscheine abboniert?"
   );
@@ -11,7 +11,7 @@
     document.getElementById("rabatt").innerHTML = rabatt;
     document.getElementById("rabatt").className = "rabatt-notice";
   }
-} */
+}
 
 // ----- TEXT ÄNDERN ----- //
 
